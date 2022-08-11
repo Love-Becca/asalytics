@@ -1,10 +1,29 @@
 import './App.css';
 import Header from './Components/Header';
 import Body from './Components/Body'
-import { ApolloClient, ApolloProvider } from '@apollo/client';
+import { ApolloClient, ApolloProvider,InMemoryCache, HttpLink, from } from '@apollo/client';
+import {onError} from '@apollo/client/link/error'
  
+
+
+const errorLink =onError(({graphqlErrors, networkError}) =>{
+  if (graphqlErrors) {
+    graphqlErrors.map(({message, location,path})=>{
+      alert(`Graphql error ${message}`)
+    });
+  }
+})
+const link = from([
+  errorLink,
+  new HttpLink({
+    uri: 'https://analytics-api.herokuapp.com/analytics'
+  })
+
+])
+
 const client = new ApolloClient({
-  uri: 'https://analytics-api.herokuapp.com/analytics'
+  link: link,
+  cache: new InMemoryCache()
 })
 
 function App() {

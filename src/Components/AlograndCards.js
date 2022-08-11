@@ -1,12 +1,11 @@
 import React from 'react';
-import icon from '../assets/biticon.png'
 
-const AlograndCard = () => {
+const AlograndCard = (props) => {
     return (
         <div className='card'>
-            <img src={icon} alt='logo'  className='bitcoin-icon'/>
-            <h3 className='coin-name'>Alogrand</h3>
-            <button className='available'>Available</button>
+            <img src={props.logo} alt='logo'  className='bitcoin-icon'/>
+            <h3 className='coin-name'>{props.name}</h3>
+            <button className='available'>{props.isAvailable}</button>
         </div>
     );
 }
