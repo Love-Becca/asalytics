@@ -1,5 +1,6 @@
 .App{
   background-color: #F2FBF6;
+  padding: 32px 64px;
 }
 .analyze-button{
   width: 199px;
@@ -15,8 +16,18 @@ header{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 32px 64px;
   height: 126.94px;
   border: 2px solid red;
+}
+
+.alogrand-list{
+  text-align: center;
+  line-height: 45px;
+  font-size: 36px;
+}
+
+.bitcoin-icon{
+  width: 30px;
+  height: 57.39px;
 }
 
