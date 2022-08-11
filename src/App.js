@@ -5,11 +5,9 @@ import { ApolloClient, ApolloProvider,InMemoryCache, HttpLink, from } from '@apo
 import {onError} from '@apollo/client/link/error'
 
 //To  get information about error
-const errorLink =onError(({graphqlErrors, networkError}) =>{
+const errorLink = onError(({graphqlErrors, networkError}) =>{
   if (graphqlErrors) {
-    graphqlErrors.map(({message, location,path})=>{
-      alert(`Graphql error ${message}`)
-    });
+    graphqlErrors.map(({message, location,path}) => alert(`Graphql error ${message}`));
   }
 })
 
