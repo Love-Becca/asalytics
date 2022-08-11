@@ -32,36 +32,84 @@ header{
 }
 
 .bitcoin-icon{
-  width: 30px;
-  height: 57.39px;
+  width: 40px;
+  height: 40px;
 }
 
 .coin-name{
-  font-size: 24px;
+  font-size: 20px;
   line-height: 30px;
   font-weight: 500;
-  margin-top: -5px;
+  /* margin-top: 0px; */
+  text-align: center;
 }
 
-.available{
+.Available,.unavailable{
   width: 68px;
   height: 31px;
-  background: #6FD791;
+  background-color: #6FD791;
   border-radius: 8px;
   border: none;
   color: rgba(255, 255, 255, 1);
-  font-size: 12px;
+  font-size: 0.6rem;
 }
 
+.unavailable{
+  background-color:rgba(188, 49, 49, 1);
+}
 .card{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px 0px;
-  width: 304px;
+  padding: 20px 8px;
+  width: 270px;
   height: 185px;
   border: 1px solid #B7BECC;
   border-radius: 10px;
 
 }
+
+.assetCards{
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  gap: 1.2rem;
+  margin-top: 100px;
+}
+
+@media screen and (max-width:800px) {
+  .App{
+    padding: 0px 15px;
+  }
+  .logo{
+    width: 90px;
+    height: 50px;
+  }
+  .analyze-button{
+    width: 100px;
+    height: 40px;
+    font-size: 0.6rem;
+    
+  }
+  
+  header{
+    display: flex;
+    gap: 1rem;
+    height: 126.94px;
+  }
+  
+  .assetCards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width:600px) and (max-width: 1200px) {
+  .assetCards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+

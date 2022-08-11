@@ -3,9 +3,8 @@ import Header from './Components/Header';
 import Body from './Components/Body'
 import { ApolloClient, ApolloProvider,InMemoryCache, HttpLink, from } from '@apollo/client';
 import {onError} from '@apollo/client/link/error'
- 
 
-
+//To  get information about error
 const errorLink =onError(({graphqlErrors, networkError}) =>{
   if (graphqlErrors) {
     graphqlErrors.map(({message, location,path})=>{
@@ -13,6 +12,8 @@ const errorLink =onError(({graphqlErrors, networkError}) =>{
     });
   }
 })
+
+//end point
 const link = from([
   errorLink,
   new HttpLink({
@@ -21,6 +22,7 @@ const link = from([
 
 ])
 
+//connecting to endpoint
 const client = new ApolloClient({
   link: link,
   cache: new InMemoryCache()

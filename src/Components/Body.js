@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import AlograndCard from './AlograndCards';
 import { gql } from '@apollo/client/core';
 import { useQuery } from '@apollo/client/react';
 
+//query structure
 const getCoinQuery = gql`
     query MyQuery {
         asalist {
@@ -17,28 +18,30 @@ const getCoinQuery = gql`
 `
 
 const Body = () => {
+    //binds component to query
     const{error, loading, data} = useQuery(getCoinQuery)
-    if (loading) return 'Loading...';
+    //message when loading
+    if (loading) return 'Loading please wait...';
+    //error message 
     if (error) return `Error! ${error.message}`;
-    let element;
+
+    //first iteration in other to get result from asalist
+    let assetData;
     for (const item in data) {
         if (Object.hasOwnProperty.call(data, item)) {
-            element = data[item];
-
+            assetData = data[item];
         }
     }
 
-    let check
-    for (const item in element) {
-        if (Object.hasOwnProperty.call(element, item)) {
-            check = element[item];
-
+    //second iteration to get the array needed from the result
+    let assetResult
+    for (const item in assetData) {
+        if (Object.hasOwnProperty.call(assetData, item)) {
+            assetResult = assetData[item];
         }
     }
-
-    //const [algo, setAlgo] = useState(datalist)
-
-    const cards = check.map(card=>
+    // returns each component with data
+    const cards = assetResult.map(card=>
         <AlograndCard 
             key={card.assetId}
             logo={card.logo}
@@ -47,9 +50,9 @@ const Body = () => {
         />
     )
     return ( 
-        <main>
+        <main className='asset-info'>
             <h2 className='alogrand-list'>List of Algorand Standard Assets <br />on ASAlytics</h2>
-            <div>
+            <div className='assetCards'>
                {cards}
             </div>
         </main>
