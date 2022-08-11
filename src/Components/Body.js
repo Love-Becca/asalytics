@@ -18,22 +18,39 @@ const getCoinQuery = gql`
 
 const Body = () => {
     const{error, loading, data} = useQuery(getCoinQuery)
-    // const datalist = data
-    // const [algo, setAlgo] = useState(datalist)
+    if (loading) return 'Loading...';
+    if (error) return `Error! ${error.message}`;
+    let element;
+    for (const item in data) {
+        if (Object.hasOwnProperty.call(data, item)) {
+            element = data[item];
 
-    // const cards = algo.map(card=>
-    //     <AlograndCard 
-    //         key={card.assetId}
-    //         logo={card.logo}
-    //         isAvailable={card.available}
-    //         name={card.name}
-    //     />
-    // )
+        }
+    }
+
+    let check
+    for (const item in element) {
+        if (Object.hasOwnProperty.call(element, item)) {
+            check = element[item];
+
+        }
+    }
+
+    //const [algo, setAlgo] = useState(datalist)
+
+    const cards = check.map(card=>
+        <AlograndCard 
+            key={card.assetId}
+            logo={card.logo}
+            isAvailable={card.available}
+            name={card.name}
+        />
+    )
     return ( 
         <main>
             <h2 className='alogrand-list'>List of Algorand Standard Assets <br />on ASAlytics</h2>
             <div>
-               <AlograndCard/>
+               {cards}
             </div>
         </main>
     );
