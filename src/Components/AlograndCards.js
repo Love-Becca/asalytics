@@ -1,5 +1,4 @@
 import React from 'react';
-import { useState } from 'react';
 
 const AlograndCard = (props) => {
     //to get if the asset is available or not
