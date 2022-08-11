@@ -2,6 +2,11 @@
   background-color: #F2FBF6;
   padding: 32px 64px;
 }
+
+.logo{
+  width: 150px;
+  height: 62.94px;
+}
 .analyze-button{
   width: 199px;
   height: 60px;
@@ -17,7 +22,6 @@ header{
   justify-content: space-between;
   align-items: center;
   height: 126.94px;
-  border: 2px solid red;
 }
 
 .alogrand-list{
@@ -31,3 +35,32 @@ header{
   height: 57.39px;
 }
 
+.coin-name{
+  font-size: 24px;
+  line-height: 30px;
+  font-weight: 500;
+  margin-top: -5px;
+}
+
+.available{
+  width: 68px;
+  height: 31px;
+  background: #6FD791;
+  border-radius: 8px;
+  border: none;
+  color: rgba(255, 255, 255, 1);
+  font-size: 12px;
+}
+
+.card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0px;
+  width: 304px;
+  height: 185px;
+  border: 1px solid #B7BECC;
+  border-radius: 10px;
+
+}

@@ -5,7 +5,7 @@ import '../App.css'
 const Header = () => {
     return ( 
         <header>
-            <img src={logo} alt='logo' />
+            <img src={logo} alt='logo' className='logo' />
             <button className='analyze-button'>ANALYZE ASAs</button>
         </header>
      );
