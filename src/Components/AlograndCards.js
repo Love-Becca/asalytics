@@ -3,9 +3,9 @@ import { useState } from 'react';
 
 const AlograndCard = (props) => {
     //to get if the asset is available or not
-    const[available, setAvailable] = useState(props.isAvailable);
+    const available  = props.isAvailable
     const check = available?'Available':'unavailable'
-
+    
     return (
         <div className='card'>
             <img src={props.logo} alt='logo'  className='bitcoin-icon'/>
