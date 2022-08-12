@@ -20,6 +20,7 @@ const getCoinQuery = gql`
 const Body = () => {
     //binds component to query
     const{error, loading, data} = useQuery(getCoinQuery)
+    console.log(data)
     //message when loading
     if (loading) return 'Loading please wait...';
     //error message 
