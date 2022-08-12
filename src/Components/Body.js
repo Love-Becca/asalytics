@@ -25,21 +25,11 @@ const Body = () => {
     //error message 
     if (error) return `Error! ${error.message}`;
 
-    //first iteration in other to get result from asalist
+    // get result from asalist
     let assetData;
-    for (const item in data) {
-        if (Object.hasOwnProperty.call(data, item)) {
-            assetData = data[item];
-        }
-    }
-
-    //second iteration to get the array needed from the result
-    let assetResult
-    for (const item in assetData) {
-        if (Object.hasOwnProperty.call(assetData, item)) {
-            assetResult = assetData[item];
-        }
-    }
+    let assetResult;
+    ({ assetData, assetResult } = dataFunction(data, assetData, assetResult));
+    
     // returns each component with data
     const cards = assetResult.map(card=>
         <AlograndCard 
@@ -60,3 +50,17 @@ const Body = () => {
 }
  
 export default Body;
+
+function dataFunction(data, assetData, assetResult) {
+    for (const item in data) {
+        if (Object.hasOwnProperty.call(data, item)) {
+            assetData = data[item];
+            if (typeof (assetData) === 'object') {
+                for (const items in assetData) {
+                    assetResult = (assetData[items]);
+                }
+            }
+        }
+    }
+    return { assetData, assetResult };
+}
