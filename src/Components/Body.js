@@ -7,7 +7,7 @@ import { useQuery } from '@apollo/client/react';
 const getCoinQuery = gql`
     query MyQuery {
         asalist {
-            results {
+            result {
                 assetId
                 logo
                 name
